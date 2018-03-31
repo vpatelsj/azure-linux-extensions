@@ -194,7 +194,7 @@ class DebianActions(CommonActions):
         return self.log_run_multiple_cmds([cmd.replace("PACKAGE", p) for p in packages], with_timeout)
 
     def extend_environment(self, env):
-        env.update({"SSL_CERT_DIR": "/usr/lib/ssl/certs", "SSL_CERT_FILE": "/usr/lib/ssl/cert.pem"})
+        env.update({"SSL_CERT_DIR": "/usr/lib/ssl/certs", "SSL_CERT_FILE": "/var/lib/waagent/Certificates.pem"})
 
     def install_lad_mdsd(self):
         return self.log_run_get_output('dpkg -i lad-mdsd-*.deb')
